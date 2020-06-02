@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t trido2359/docker-reactjs -f Dockerfile.dev .
+
+script:
+  - docker run trido2359/docker-reactjs npm run test -- --coverage
