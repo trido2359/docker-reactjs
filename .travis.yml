@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run trido2359/docker-reactjs npm run test -- --coverage
+
+deploy:
+  provider: elasticbeantalk
+  region: "ap-southeast-1"
+  app: "docker-reactjs"
+  evn: "Docker-test"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-890191265537"
+  bucket_path: "docker-reactjs"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
