@@ -8,7 +8,7 @@ before_install:
   - docker build -t trido2359/docker-reactjs -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true trido2359/docker-reactjs npm run test
+  - docker run -e CI=true trido2359/docker-reactjs npm run test -- -- coverage
 
 deploy:
   provider: elasticbeanstalk
